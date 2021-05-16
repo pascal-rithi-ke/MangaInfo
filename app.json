@@ -1,0 +1,12 @@
+{
+  "name": "Manga_Info",
+  "displayName": "Manga_Info",
+  "expo": {
+    "name": "Manga_Info",
+    "slug": "Manga_Info",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
