@@ -1,10 +1,6 @@
 import pymongo
 from flask import Flask,jsonify
 
-"""
-Bdd en Ligne
-connect = pymongo.MongoClient("mongodb+srv://admin:root@cluster0.sp2ay.mongodb.net/Manga_info")
-"""
 connect = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = connect["Manga_info"]
 mycol = mydb["manga_collection"]
