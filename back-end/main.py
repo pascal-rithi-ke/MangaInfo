@@ -45,7 +45,7 @@ app = Flask(__name__)
 def detail():
         output = []
         for x in mycol.find():
-                output.append({'id' : x['id'],'nom':x['nom'],'autor':x['autor'],'img':x['url_img'],'score':x['score'],'synopsis':x['synopsis'],'genre':x['genre'],})
+                output.append({'id' : x['id'],'name':x['name'],'autor':x['autor'],'img':x['url_img'],'score':x['score'],'synopsis':x['synopsis'],'genre':x['genre'],})
         """ici"""
         response = jsonify({'results':output})
         response.headers.add("Access-Control-Allow-Origin","*")
@@ -55,7 +55,7 @@ def detail():
 def getSoloManga(id):
         output = []
         for x in mycol.find({"id": int(id)}):
-                output.append({'id' : x['id'],'nom':x['nom'],'autor':x['autor'],'img':x['url_img'],'score':x['score'],'synopsis':x['synopsis'],'genre':x['genre'],})
+                output.append({'id' : x['id'],'name':x['name'],'autor':x['autor'],'img':x['url_img'],'score':x['score'],'synopsis':x['synopsis'],'genre':x['genre'],})
         response = jsonify({'results':output})
         response.headers.add("Access-Control-Allow-Origin","*")
         return response

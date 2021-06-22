@@ -11,7 +11,7 @@ export default StyleSheet.create({
         flexDirection : "row",
     },
 
-    Twocolonne :{
+    TwoColumn :{
         flexDirection : "column",
         width : 600,
     },
@@ -29,7 +29,7 @@ export default StyleSheet.create({
           backgroundColor :'green',
       },
   
-      auteur : {
+      autor : {
           margin : 10,
           backgroundColor :'yellow',
       },
