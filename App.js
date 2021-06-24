@@ -54,7 +54,7 @@ const getAllManga = () => {
 								</View>	
 							</View>
 						</View>
-						<Button title="See More" onPress={() => navigation.navigate('Details' , {id:`${item.id}`})}/>
+						<Button title="See More" onPress={() => navigation.navigate('Details' , {id:`${item.id}`,img:`${item.img}`,name:`${item.name}`,autor:`${item.autor}`,genre:`${item.genre}`,score:`${item.score}`,synopsis:`${item.synopsis}`})}/>
 					</View>
 				</View>
 					);
@@ -71,8 +71,7 @@ const getAllManga = () => {
 	} 
 
 	function DetailsManga({ route,navigation }) {
-		const {id} = route.params
-
+		const {id,img,name,autor,genre,score,synopsis} = route.params
 		const apiURLmore = apiURL+"/"+id
 		const [Infomangas,getMangas] = useState('');
 			useEffect(() => {
@@ -93,30 +92,30 @@ const getAllManga = () => {
 						<View style ={styles.flatListData}>
 							<View style ={styles.manga_info}>
 								<View style={styles.img}>
-									<Image style={{ height: 300, width: 200 }}source={{ uri: `${item.img}` }}/>
+									<Image style={{ height: 300, width: 200 }}source={{ uri: `${img}` }}/>
 								</View>
 								<View style={styles.TwoColumn}>
 									<View style={styles.title}>
-										<Text>Name: {item.name}</Text>
+										<Text>Name: {name}</Text>
 									</View>
 									<View style={styles.autor}>
-										<Text>Autor: {item.autor}</Text>
+										<Text>Autor: {autor}</Text>
 									</View>
 									<View  style={styles.genre}>
-										<Text>Genre: {item.genre}</Text>
+										<Text>Genre: {genre}</Text>
 									</View>
 									<View style={styles.score}>
-										<Text>Score: {item.score}</Text>
+										<Text>Score: {score}</Text>
 									</View>
 									<View style={styles.resume}>
-										<Text>Synonpsis: {item.synopsis}</Text>	
+										<Text>Synonpsis: {synopsis}</Text>	
 									</View>	
 								</View>
 							</View>
 							<Button title="Back Home" onPress={() => navigation.goBack()}/>
 						</View>
 					</View>
-						);
+					);
 				}
 		return(
 			<View>
