@@ -81,14 +81,26 @@ const getAllManga = () => {
 		const getOneInfoManga = () => { 
 			axios.get(apiURLmore).then((res) =>  {
 				const dataOneManga = res.data.results;
-				//console.log(dataManga);
+			//console.log(dataOneManga);
 				getMangas(dataOneManga); 	
 				})
 			.catch(error => console.error(`Error:${error}`));
 			}
 			const renderOneItem = ({ item }) => {
 				return (
-					<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+					<View>
+						<Image style={{ height: 300, width: 600 }}source={{ uri: `${item.url_img}` }}/>
+						<Text>Title : {item.title}</Text>
+						<Text>Description : {item.description}</Text>
+						<Text>{item.recipe}</Text>
+						<Text>{item.info}</Text>
+						<Text>{item.sauce}</Text>
+					</View>
+					);
+				}
+		return(
+			<View>
+				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 						<View style ={styles.flatListData}>
 							<View style ={styles.manga_info}>
 								<View style={styles.img}>
@@ -114,15 +126,11 @@ const getAllManga = () => {
 							</View>
 							<Button title="Back Home" onPress={() => navigation.goBack()}/>
 						</View>
-					</View>
-					);
-				}
-		return(
-			<View>
+				</View>
 				<FlatList
 				data={Infomangas}
 				renderItem={renderOneItem}
-				keyExtractor={item => item.id.toString()}
+				keyExtractor={item => item._id.$oid.toString()}
 				/>
 			</View>
 			);
